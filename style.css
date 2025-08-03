@@ -82,7 +82,7 @@ nav ul li a:hover {
     height: 100%;
     object-fit: cover;
     z-index: -1; /* Ensure the video is behind other content */
-}
+} 
 #home h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
@@ -169,49 +169,124 @@ nav ul li a:hover {
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
+
+
 #skills {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100vh;
-}
-.skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    border-radius: 30px;
-    background:transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.22);
-    box-shadow: 0 6px 32px rgba(0,0,0,0.55);
+    overflow: hidden;
+    padding: 2rem 0;
+    box-sizing: border-box;
 }
 
-.skill {
-    display: flex;
-    align-items: center;
-    justify-content: row;
-    width: 90px;
-    height: 90px;
-    margin: 0;
-    border-radius: 16px;
-    padding: 0.5rem;
-     background:transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    font-size: 1rem;
-    text-align: center;
-}
- .certification , #education {
+.skills-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
- }
+    text-align: center;
+}
+
+/* Skills slider container */
+.skills-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    overflow: hidden;
+    position: relative;
+    height: 220px; 
+    scrollbar-width: none;
+}
+.skills-list::-webkit-scrollbar {
+    display: none;
+}
+
+
+.skills-list{
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    gap: 1.5rem;
+    animation: skill-slider 18s linear infinite;
+}
+
+
+.skill1,.skill2, .skill3, .skill4, .skill5, .skill6, .skill7 {
+    flex: 0 0 280px;
+    max-width: 320px;
+    min-width: 200px;
+    border-radius: 30px;
+    padding: 1.2rem 2rem;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+    margin: 0 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.skill1 :hover,.skill2 :hover, .skill3 :hover, .skill4 :hover, .skill5 :hover, .skill6 :hover, .skill7:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.65);
+    background: rgba(255,255,255,0.18);
+}
+
+.skill1 h3,.skill2 h3, .skill3 h3, .skill4 h3, .skill5 h3, .skill6 h3 , .skill7 h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #ffd700;
+    font-weight: 600;
+}
+.skill1 p,.skill2 p, .skill3 p, .skill4 p, .skill5 p, .skill6 p, .skill7 p {
+    font-size: 1.05rem;
+    color: #f3f3f3;
+    opacity: 0.92;
+    margin-bottom: 0.2rem;
+}
+
+
+@keyframes skill-slider {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+@media (max-width: 700px) {
+    .skills-list {
+        height: 250px;
+        gap: 0.75rem;
+    }
+    .skill1, .skill2, .skill3, .skill4, .skill5, .skill6, .skill7 {
+        flex-basis: 160px;
+        max-width: 180px;
+        min-width: 120px;
+        padding: 0.8rem 1rem;
+    }
+    .skill1 h3,.skill2 h3, .skill3 h3, .skill4 h3, .skill5 h3, .skill6 h3, .skill7 h3  {
+        font-size: 1.1rem;
+    }
+    .skill1 p,.skill2 p, .skill3 p, .skill4 p, .skill5 p, .skill6 p, .skill7 p {
+        font-size: 0.95rem;
+    }
+}
+
+
+
+
+
+
 .cert{
     display: flex;
     align-items: center;
@@ -234,7 +309,7 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.education-list, .certification-list {
+.education-list, .certification-list  {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -260,7 +335,7 @@ nav ul li a:hover {
     box-shadow: 0 6px 32px rgba(0,0,0,0.55);
 }
 
-#projects ,#skills, #contact {
+#projects , #contact {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -275,7 +350,7 @@ nav ul li a:hover {
     justify-content: center;
     text-align: center;
 }
-.projects ,.skills-list{
+.projects ,.skill{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -301,7 +376,7 @@ nav ul li a:hover {
     border: 1.5px solid rgba(255, 255, 255, 0.22);
     box-shadow: 0 6px 32px rgba(0,0,0,0.55);
 }
-.skill{
+/*.skill{
      display: flex;
     flex-direction: column;
     align-items: center;
@@ -314,7 +389,7 @@ nav ul li a:hover {
     background:transparent;
     border: 1.5px solid rgba(255, 255, 255, 0.22);
     box-shadow: 0 6px 32px rgba(0,0,0,0.55);
-}
+}*/
 
 .download-cv-button {
     display: flex;
@@ -338,11 +413,11 @@ nav ul li a:hover {
 }
 
 
-#contact ,#projects, #skills ::before {
+#contact ,#projects,  ::before {
     position: relative;
     z-index: 1;
 }
-#contact,#projects ,#skills,.parts-container::before {
+#contact,#projects ,.parts-container::before {
     content: "";
     position: fixed;
     top: 0;
